@@ -1,5 +1,5 @@
 import Sidebar from './Sidebar';
-import Header from './header.js';
+import Header from '~/components/Layout/components/Header/index.js';
 
 function DeafultLayout({ children }) {
     return (
