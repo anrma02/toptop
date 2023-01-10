@@ -13,6 +13,7 @@
     width: 1150px;
     height: 100%;
     display: flex;
+    padding: 0 var(--default-layout-horizontal-spacer);
     align-items: center;
     justify-content: space-between;
 }
@@ -97,6 +98,7 @@
     margin-left: 28px;
     padding: 4px 8px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 // Menu

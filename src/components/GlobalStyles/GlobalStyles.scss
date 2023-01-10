@@ -8,7 +8,11 @@
     --black: #000;
     --white: #fff;
     --text-color: #000;
+
+    //defaulf layout
     --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --default-layout-horizontal-spacer: 24px;
 }
 * {
     padding: 0;
