@@ -11,9 +11,6 @@ import {
     faEllipsisVertical,
     faKeyboard,
     faMagnifyingGlass,
-    faSign,
-    faSignIn,
-    faCloudUpload,
     faSpinner,
     faUser,
     faCoins,
@@ -27,6 +24,8 @@ import styles from './Header.module.scss';
 import images from '~/components/asset/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -133,7 +132,9 @@ function Header() {
                         <>
                             <Tippy trigger="click" content="Upload video" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
+                                    {/* <MessageIcon />
+                                    <InboxIcon /> */}
                                 </button>
                             </Tippy>
                         </>
@@ -147,7 +148,7 @@ function Header() {
                         {/* Kiểm tra check logo */}
 
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/115cca71265c94522079ac7e93a0274b.jpeg?x-expires=1673492400&x-signature=u9rYkwuQqyNNcLPjBQ5fGOzU9ZE%3D"
                                 className={cx('user-avatar')}
                                 alt="M-TP"
