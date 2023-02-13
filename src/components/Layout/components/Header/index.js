@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
@@ -13,6 +14,9 @@ import {
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/components/asset/images';
@@ -84,9 +88,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div classNames={cx('logo')}>
-                    <img src={images.logo}></img>
-                </div>
+                <Link to={routesConfig.home} classNames={cx('logo-link')}>
+                    <img src={images.logo} alt="TikTok" />
+                </Link>
 
                 {/*Search */}
                 <Search />
