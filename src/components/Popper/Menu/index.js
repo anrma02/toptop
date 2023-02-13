@@ -6,7 +6,6 @@ import MenuItem from './MenuItem';
 import styles from './Menu.module.scss';
 import Header from './Header';
 import { useState } from 'react';
-import { flushSync } from 'react-dom';
 
 const cx = classNames.bind(styles);
 
@@ -37,6 +36,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFN 
 
     return (
         <Tippy
+            // visible
             interactive
             delay={[0, 700]}
             offset={[12, 8]}
@@ -53,7 +53,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFN 
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <dv className={cx('menu-body-scroll')}> {renderItems()} </dv>
                     </PopperWrapper>
                 </div>
             )}
