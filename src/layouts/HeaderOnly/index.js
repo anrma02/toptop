@@ -1,4 +1,4 @@
-import Header from '~/components/Layout/components/Header/index.js';
+import Header from '~/layouts/components/Header/index.js';
 
 function HeaderOnly({ children }) {
     return (
@@ -11,4 +11,4 @@ function HeaderOnly({ children }) {
     );
 }
 
-export default Header  ;
+export default Header;
