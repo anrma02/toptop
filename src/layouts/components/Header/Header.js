@@ -1,32 +1,30 @@
-/* eslint-disable jsx-a11y/alt-text */
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
 import {
     faCircleQuestion,
+    faCoins,
     faEarthAsia,
     faEllipsisVertical,
-    faKeyboard,
-    faUser,
-    faCoins,
     faGear,
+    faKeyboard,
     faSignOut,
+    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 
 import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
-import images from '~/components/asset/images';
+import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-import { MessageIcon } from '~/components/Icons/Icons';
-import { InboxIcon } from '~/components/Icons/Icons';
-import { UploadIcon } from '~/components/Icons/Icons';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);
+
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -34,37 +32,48 @@ const MENU_ITEMS = [
         children: {
             title: 'Language',
             data: [
-                { code: 'en', title: 'English' },
-                { code: 'vie', title: 'Việt Nam' },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
             ],
         },
     },
-
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Feedback and help',
         to: '/feedback',
     },
-
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
         title: 'Keyboard shortcuts',
     },
 ];
+
 function Header() {
     const currentUser = true;
 
-    // handle LOGIC
-
+    // Handle logic
     const handleMenuChange = (menuItem) => {
-        console.log(menuItem);
+        switch (menuItem.type) {
+            case 'language':
+                // Handle change language
+                break;
+            default:
+        }
     };
 
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
-            title: 'View Profile',
-            to: '/@mtp',
+            title: 'View profile',
+            to: '/@hoaa',
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
@@ -84,17 +93,16 @@ function Header() {
             separate: true,
         },
     ];
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={config.routes.home} classNames={cx('logo-link')}>
-                    <img src={images.logo} alt="TikTok" />
+                <Link to={config.routes.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
                 </Link>
 
-                {/*Search */}
                 <Search />
 
-                {/* IF ELSE   */}
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
@@ -118,19 +126,16 @@ function Header() {
                     ) : (
                         <>
                             <Button text>Upload</Button>
-                            <Button primary to="/">
-                                Log in
-                            </Button>
+                            <Button primary>Log in</Button>
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                        {/* Kiểm tra check logo */}
 
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/115cca71265c94522079ac7e93a0274b.jpeg?x-expires=1673492400&x-signature=u9rYkwuQqyNNcLPjBQ5fGOzU9ZE%3D"
                                 className={cx('user-avatar')}
-                                alt="M-TP"
+                                src="https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-1/328433481_1406658940076478_7981203303045632559_n.jpg?stp=c1.0.240.240a_dst-jpg_p240x240&_nc_cat=107&ccb=1-7&_nc_sid=7206a8&_nc_ohc=ubavqApyYrQAX9FHiIW&_nc_ht=scontent.fhan5-8.fna&oh=00_AfCSviuxm7r4Ff-y8lUCRijt5oJVjGTUPN1YCTxTnMSImA&oe=63F3D429"
+                                alt="Nguyen Van A"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

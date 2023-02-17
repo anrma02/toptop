@@ -1,15 +1,12 @@
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import Menu, { MenuItem } from './Menu';
-import {
-    HomeIcon,
+import {HomeIcon,
     HomeActiveIcon,
     UserGroupIcon,
     UserGroupActiveIcon,
     LiveIcon,
-    LiveActiveIcon,
-} from '~/components/Icons/Icons';
-
+    LiveActiveIcon,} from'~/components/Icons' 
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 import config from '~/config';
 
@@ -30,7 +27,7 @@ function Sidebar() {
             </Menu>
 
             <SuggestedAccounts label="Suggested accounts" />
-            {/* <SuggestedAccounts label="Following accounts" /> */}
+            <SuggestedAccounts label="Following accounts" />
         </aside>
     );
 }

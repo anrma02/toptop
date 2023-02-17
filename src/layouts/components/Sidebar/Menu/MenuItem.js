@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styles from './Menu.module.scss';
 
-
 const cx = classNames.bind(styles);
 
 function MenuItem({ title, to, icon, activeIcon }) {
